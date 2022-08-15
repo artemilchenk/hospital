@@ -40,7 +40,7 @@ export class CardService {
         throw new HttpException("Цей час вже зарезервований", HttpStatus.BAD_REQUEST);
       }
       //записуємо обьект картки в бд
-      const newCard = await new this.cardModel({ ...createCardDto, reminder: [5, 3] });
+      const newCard = await new this.cardModel({ ...createCardDto, reminder: [1440, 120] });
       await newCard.save();
 
       //помічаємо дату як зарезервовану в масиві об`єкта лікаря
